@@ -67,12 +67,14 @@ int main(int argc, char *argv[])
     cvNamedWindow("win");
     for(int i=0;i<10;i++)
     {
+       // CvCapture* capture = cvCreateCameraCapture(0);
         frame = cvQueryFrame(capture);
         if(!frame) break;
         cvShowImage("win", frame);
 
         char c = cvWaitKey(0);
         if(c==27) continue;
+       // cvReleaseCapture(&capture);
 
     }
     cvReleaseCapture(&capture);
